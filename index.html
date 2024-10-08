@@ -1,0 +1,3811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="positive">R Grid</title>
+    <script src="symbol-changer.js" defer></script>
+
+    <style>
+      body {
+        height: 100svh;
+        display: grid;
+        place-items: center;
+        background-color: #282828;
+      }
+      section {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      table {
+        border-collapse: collapse;
+        border: none;
+      }
+      td {
+        color: antiquewhite;
+        padding: 0px;
+        margin: 0;
+        width: 5px;
+        font-family: monospace;
+        text-align: center;
+        border: none;
+      }
+      .rowMarker {
+        /* display: none; */
+      }
+
+      /* CONTROLS */
+      .controls {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        color: red;
+      }
+      input {
+        width: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <label>
+        Whitespace:
+        <input type="text" id="whitespaceInput" maxlength="1" value="*" />
+      </label>
+      <label>
+        Main:
+        <input type="text" id="mainInput" maxlength="1" value="R" />
+      </label>
+      <button id="applyChanges">Apply</button>
+    </div>
+
+    <section>
+      <!-- P Table -->
+      <table>
+        <!-- Row 1 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">1</td>
+        </tr>
+        <!-- Row 2 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">2</td>
+        </tr>
+        <!-- Row 3 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">3</td>
+        </tr>
+        <!-- Row 4 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="rowMarker">4</td>
+        </tr>
+        <!-- Row 5 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="rowMarker">5</td>
+        </tr>
+        <!-- Row 6 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="rowMarker">6</td>
+        </tr>
+        <!-- Row 7 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="rowMarker">7</td>
+        </tr>
+        <!-- Row 8 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="rowMarker">8</td>
+        </tr>
+        <!-- Row 9 -->
+        <tr>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="rowMarker">9</td>
+        </tr>
+        <!-- Row 10 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">10</td>
+        </tr>
+        <!-- Row 11 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">11</td>
+        </tr>
+        <!-- Row 12 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">12</td>
+        </tr>
+        <!-- Row 13 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">13</td>
+        </tr>
+        <!-- Row 14 -->
+        <tr>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">14</td>
+        </tr>
+        <!-- Row 15 -->
+        <tr>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">15</td>
+        </tr>
+        <!-- Row 16 -->
+        <tr>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">16</td>
+        </tr>
+        <!-- Row 17 -->
+        <tr>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">17</td>
+        </tr>
+        <!-- Row 18 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">18</td>
+        </tr>
+        <!-- Row 19 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+          <td class="positive">P</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">19</td>
+        </tr>
+      </table>
+
+      <!-- O Table -->
+      <table>
+        <!-- Row 1 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">1</td>
+        </tr>
+        <!-- Row 2 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">2</td>
+        </tr>
+        <!-- Row 3 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">3</td>
+        </tr>
+        <!-- Row 4 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">4</td>
+        </tr>
+        <!-- Row 5 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">5</td>
+        </tr>
+        <!-- Row 6 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+
+          <td class="rowMarker">6</td>
+        </tr>
+        <!-- Row 7 -->
+        <tr>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="rowMarker">7</td>
+        </tr>
+        <!-- Row 8 -->
+        <tr>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="rowMarker">8</td>
+        </tr>
+        <!-- Row 9 -->
+        <tr>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="rowMarker">9</td>
+        </tr>
+        <!-- Row 10 -->
+        <tr>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="rowMarker">10</td>
+        </tr>
+        <!-- Row 11 -->
+        <tr>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="rowMarker">11</td>
+        </tr>
+        <!-- Row 12 -->
+        <tr>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="rowMarker">12</td>
+        </tr>
+        <!-- Row 13 -->
+        <tr>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+
+          <td class="rowMarker">13</td>
+        </tr>
+        <!-- Row 14 -->
+        <tr>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">14</td>
+        </tr>
+        <!-- Row 15 -->
+        <tr>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">15</td>
+        </tr>
+        <!-- Row 16 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">16</td>
+        </tr>
+        <!-- Row 17 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">17</td>
+        </tr>
+        <!-- Row 18 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">18</td>
+        </tr>
+        <!-- Row 19 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+          <td class="positive">O</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">19</td>
+        </tr>
+      </table>
+
+      <!-- E Table -->
+      <table>
+        <!-- Row 1 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">1</td>
+        </tr>
+        <!-- Row 2 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+
+          <td class="rowMarker">2</td>
+        </tr>
+        <!-- Row 3 -->
+        <tr>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+
+          <td class="rowMarker">3</td>
+        </tr>
+        <!-- Row 4 -->
+        <tr>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">4</td>
+        </tr>
+        <!-- Row 5 -->
+        <tr>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">5</td>
+        </tr>
+        <!-- Row 6 -->
+        <tr>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">6</td>
+        </tr>
+        <!-- Row 7 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">7</td>
+        </tr>
+        <!-- Row 8 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">8</td>
+        </tr>
+        <!-- Row 9 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">9</td>
+        </tr>
+        <!-- Row 10 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">10</td>
+        </tr>
+        <!-- Row 11 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">11</td>
+        </tr>
+        <!-- Row 12 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">12</td>
+        </tr>
+        <!-- Row 13 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">13</td>
+        </tr>
+        <!-- Row 14 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+
+          <td class="rowMarker">14</td>
+        </tr>
+        <!-- Row 15 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+
+          <td class="rowMarker">15</td>
+        </tr>
+        <!-- Row 16 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+
+          <td class="rowMarker">16</td>
+        </tr>
+        <!-- Row 17 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">17</td>
+        </tr>
+        <!-- Row 18 -->
+        <tr>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">18</td>
+        </tr>
+        <!-- Row 19 -->
+        <tr>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+          <td class="positive">E</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">19</td>
+        </tr>
+      </table>
+
+      <!-- T Table -->
+      <table>
+        <!-- Row 1 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="rowMarker">1</td>
+        </tr>
+        <!-- Row 2 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+
+          <td class="rowMarker">2</td>
+        </tr>
+        <!-- Row 3 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">3</td>
+        </tr>
+        <!-- Row 4 -->
+        <tr>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">4</td>
+        </tr>
+        <!-- Row 5 -->
+        <tr>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">5</td>
+        </tr>
+        <!-- Row 6 -->
+        <tr>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">6</td>
+        </tr>
+        <!-- Row 7 -->
+        <tr>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">7</td>
+        </tr>
+        <!-- Row 8 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">8</td>
+        </tr>
+        <!-- Row 9 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">9</td>
+        </tr>
+        <!-- Row 10 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">10</td>
+        </tr>
+        <!-- Row 11 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">11</td>
+        </tr>
+        <!-- Row 12 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">12</td>
+        </tr>
+        <!-- Row 13 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+
+          <td class="rowMarker">13</td>
+        </tr>
+        <!-- Row 14 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+
+          <td class="rowMarker">14</td>
+        </tr>
+        <!-- Row 15 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+
+          <td class="rowMarker">15</td>
+        </tr>
+        <!-- Row 16 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+
+          <td class="rowMarker">16</td>
+        </tr>
+        <!-- Row 17 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">17</td>
+        </tr>
+        <!-- Row 18 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">18</td>
+        </tr>
+        <!-- Row 19 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+          <td class="positive">T</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">19</td>
+        </tr>
+      </table>
+
+      <!-- R Table -->
+      <table>
+        <!-- Row 1 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">1</td>
+        </tr>
+        <!-- Row 2 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">2</td>
+        </tr>
+        <!-- Row 3 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="rowMarker">3</td>
+        </tr>
+        <!-- Row 4 -->
+        <tr>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="rowMarker">4</td>
+        </tr>
+        <!-- Row 5 -->
+        <tr>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="rowMarker">5</td>
+        </tr>
+        <!-- Row 6 -->
+        <tr>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">6</td>
+        </tr>
+        <!-- Row 7 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">7</td>
+        </tr>
+        <!-- Row 8 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">8</td>
+        </tr>
+        <!-- Row 9 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">9</td>
+        </tr>
+        <!-- Row 10 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">10</td>
+        </tr>
+        <!-- Row 11 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">11</td>
+        </tr>
+        <!-- Row 12 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="rowMarker">12</td>
+        </tr>
+        <!-- Row 13 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="rowMarker">13</td>
+        </tr>
+        <!-- Row 14 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="rowMarker">14</td>
+        </tr>
+        <!-- Row 15 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="rowMarker">15</td>
+        </tr>
+        <!-- Row 16 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="rowMarker">16</td>
+        </tr>
+        <!-- Row 17 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">17</td>
+        </tr>
+        <!-- Row 18 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">18</td>
+        </tr>
+        <!-- Row 19 -->
+        <tr>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="positive">R</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="rowMarker">19</td>
+        </tr>
+      </table>
+
+      <!-- Y Table -->
+      <table>
+        <!-- Row 1 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="rowMarker">1</td>
+        </tr>
+        <!-- Row 2 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="rowMarker">2</td>
+        </tr>
+        <!-- Row 3 -->
+        <tr>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+
+          <td class="rowMarker">3</td>
+        </tr>
+        <!-- Row 4 -->
+        <tr>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">4</td>
+        </tr>
+        <!-- Row 5 -->
+        <tr>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">5</td>
+        </tr>
+        <!-- Row 6 -->
+        <tr>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">6</td>
+        </tr>
+        <!-- Row 7 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">7</td>
+        </tr>
+        <!-- Row 8 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">8</td>
+        </tr>
+        <!-- Row 9 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">9</td>
+        </tr>
+        <!-- Row 10 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">10</td>
+        </tr>
+        <!-- Row 11 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">11</td>
+        </tr>
+        <!-- Row 12 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">12</td>
+        </tr>
+        <!-- Row 13 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">13</td>
+        </tr>
+        <!-- Row 14 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">14</td>
+        </tr>
+        <!-- Row 15 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">15</td>
+        </tr>
+        <!-- Row 16 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="rowMarker">16</td>
+        </tr>
+        <!-- Row 17 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="rowMarker">17</td>
+        </tr>
+        <!-- Row 18 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+
+          <td class="rowMarker">18</td>
+        </tr>
+        <!-- Row 19 -->
+        <tr>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+          <td class="positive">Y</td>
+
+          <td class="negative">*</td>
+          <td class="negative">*</td>
+
+          <td class="rowMarker">19</td>
+        </tr>
+      </table>
+    </section>
+  </body>
+</html>
